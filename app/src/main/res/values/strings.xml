@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AppBaseFrame</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="check_internet_connect">请检查网络是否能正常连接</string>
+</resources>

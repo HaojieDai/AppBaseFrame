@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="LoadingView">
+        <attr name="size" format="dimension" />
+        <attr name="android:color" />
+    </declare-styleable>
+
+    <declare-styleable name="TitleBar">
+        <attr name="left_show_image" format="boolean" />
+        <attr name="left_src" format="reference" />
+        <attr name="left_size" format="dimension" />
+        <attr name="left_color" format="color" />
+        <attr name="left_text" format="string" />
+        <attr name="middle_text" format="string" />
+        <attr name="middle_size" format="dimension" />
+        <attr name="middle_color" format="color" />
+        <attr name="right_show_image" format="boolean" />
+        <attr name="right_src" format="reference" />
+        <attr name="right_size" format="dimension" />
+        <attr name="right_color" format="color" />
+        <attr name="right_text" format="string" />
+        <attr name="show_divider" format="boolean" />
+    </declare-styleable>
+
+</resources>

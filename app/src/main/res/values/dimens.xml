@@ -1,0 +1,6 @@
+<resources>
+
+    <dimen name="margin_icon_to_text">14dp</dimen>
+    <dimen name="check_internet_connect_size">14sp</dimen>
+
+</resources>
