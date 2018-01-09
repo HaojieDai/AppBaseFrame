@@ -23,4 +23,17 @@
         <attr name="show_divider" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="RadiusImageView">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="selected_mask_color" format="color" />
+        <attr name="selected_border_color" format="color" />
+        <attr name="selected_border_width" format="dimension" />
+        <attr name="corner_radius" format="dimension" />
+        <attr name="is_oval" format="boolean" />
+        <attr name="is_circle" format="boolean" />
+        <attr name="is_touch_select_mode_enabled" format="boolean" />
+    </declare-styleable>
+    <attr name="RadiusImageView" format="reference" />
+
 </resources>
