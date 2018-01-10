@@ -15,7 +15,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.app.base.BaseActivity;
+import com.app.base.common.BaseActivity;
 import com.app.base.R;
 import com.app.base.common.ZoomOutPageTransformer;
 import com.app.base.common.util.DisplayUtil;

@@ -1,4 +1,4 @@
-package com.app.base;
+package com.app.base.common;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.app.base.common.util.BaseConstant;
-import com.app.base.common.view.TipPopup;
+import com.app.base.common.view.popupwindow.TipPopup;
 
 import java.util.Date;
 

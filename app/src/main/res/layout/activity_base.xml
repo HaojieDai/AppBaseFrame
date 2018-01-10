@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.app.base.common.view.TitleBar
+    <com.app.base.common.view.combination.TitleBar
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="50dp"

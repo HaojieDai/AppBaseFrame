@@ -1,4 +1,4 @@
-package com.app.base;
+package com.app.base.common;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,10 +8,11 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.app.base.R;
 import com.app.base.common.util.BaseConstant;
 import com.app.base.common.view.AnimLoadingView;
-import com.app.base.common.view.TipPopup;
-import com.app.base.common.view.TitleBar;
+import com.app.base.common.view.popupwindow.TipPopup;
+import com.app.base.common.view.combination.TitleBar;
 
 import java.util.Date;
 

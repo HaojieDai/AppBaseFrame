@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.app.base.BaseActivity;
+import com.app.base.common.BaseActivity;
 
 /**
  * 启动页

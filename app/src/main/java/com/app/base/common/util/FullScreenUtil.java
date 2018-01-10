@@ -3,9 +3,8 @@ package com.app.base.common.util;
 import android.graphics.Color;
 import android.os.Build;
 import android.view.View;
-import android.view.WindowManager;
 
-import com.app.base.BaseActivity;
+import com.app.base.common.BaseActivity;
 
 /**
  * 使界面实现全屏的工具类
