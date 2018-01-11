@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/common_item_icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/permission_ic_calendar" />
+
+    <LinearLayout
+        android:id="@+id/common_item_title_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/common_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我是大标题我是大标题我是大标题"
+            android:textColor="@color/common_title_default_title_color"
+            android:textSize="@dimen/common_title_default_title_size" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="10dp"
+            android:layout_height="6dp" />
+
+        <TextView
+            android:id="@+id/common_item_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我是详细介绍我是详细介绍我是详细介绍"
+            android:textColor="@color/common_title_default_detail_color"
+            android:textSize="@dimen/common_title_default_detail_size" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/common_item_customized"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</merge>

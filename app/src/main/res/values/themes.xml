@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="common_title_default_title_color">#434343</color>
+    <color name="common_title_default_detail_color">#707070</color>
+    <dimen name="common_title_default_title_size">14sp</dimen>
+    <dimen name="common_title_default_detail_size">12sp</dimen>
+
+    <!--<drawable name="home_indicator_first_drawable_normal"></drawable>
+    <drawable name="home_indicator_first_drawable_checked"></drawable>
+    <drawable name="home_indicator_second_drawable_normal"></drawable>
+    <drawable name="home_indicator_second_drawable_checked"></drawable>
+    <drawable name="home_indicator_third_drawable_normal"></drawable>
+    <drawable name="home_indicator_third_drawable_checked"></drawable>
+    <drawable name="home_indicator_fourth_drawable_normal"></drawable>
+    <drawable name="home_indicator_fourth_drawable_checked"></drawable>-->
+
+</resources>
