@@ -60,6 +60,14 @@
                 android:textColor="@color/check_internet_connect_color"
                 android:textSize="@dimen/check_internet_connect_size" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_icon_to_text"
+                android:text="@string/click_any_retry"
+                android:textColor="@color/check_internet_connect_color"
+                android:textSize="@dimen/check_internet_connect_size" />
+
         </LinearLayout>
 
     </FrameLayout>
