@@ -36,4 +36,11 @@
     </declare-styleable>
     <attr name="RadiusImageView" format="reference" />
 
+    <declare-styleable name="AutoRollBanner">
+        <attr name="normalDotSrc" format="reference" />
+        <attr name="selectDotSrc" format="reference" />
+        <attr name="marginBetweenDots" format="dimension"/>
+        <attr name="dotsBottomMargin" format="dimension"/>
+        <attr name="dotSize" format="dimension"/>
+    </declare-styleable>
 </resources>

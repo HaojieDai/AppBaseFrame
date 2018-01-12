@@ -74,7 +74,7 @@ public class CommonItem extends RelativeLayout {
 
         RelativeLayout.LayoutParams iconLp = (LayoutParams) mItemIcon.getLayoutParams();
         iconLp.addRule(RelativeLayout.CENTER_VERTICAL);
-        iconLp.rightMargin = DisplayUtil.dp2px(10);
+        iconLp.rightMargin = DisplayUtil.dp2px(getContext(), 10);
         mItemIcon.setLayoutParams(iconLp);
 
         RelativeLayout.LayoutParams containerLp = (LayoutParams) mTitleContainer.getLayoutParams();
@@ -91,7 +91,7 @@ public class CommonItem extends RelativeLayout {
     }
 
     public void setAccessoryType(int type) {
-        if (type == mAccessoryType){
+        if (type == mAccessoryType) {
             return;
         }
         mItemCustomized.removeAllViews();
@@ -127,35 +127,35 @@ public class CommonItem extends RelativeLayout {
         }
     }
 
-    public void setOrientation(int orientation){
-        if (orientation == mTitleContainer.getOrientation()){
+    public void setOrientation(int orientation) {
+        if (orientation == mTitleContainer.getOrientation()) {
             return;
         }
         mTitleContainer.setOrientation(orientation);
-        if (orientation==HORIZONTAL){
+        if (orientation == HORIZONTAL) {
             mTitleContainer.setGravity(Gravity.CENTER);
-        }else{
+        } else {
             mTitleContainer.setGravity(Gravity.LEFT);
         }
     }
 
-    public FrameLayout getItemCustomized(){
-        return  mItemCustomized;
+    public FrameLayout getItemCustomized() {
+        return mItemCustomized;
     }
 
-    public ImageView getItemIcon(){
-        return  mItemIcon;
+    public ImageView getItemIcon() {
+        return mItemIcon;
     }
 
-    public TextView getItemTitle(){
-        return  mTitleTextView;
+    public TextView getItemTitle() {
+        return mTitleTextView;
     }
 
-    public TextView getItemDetail(){
+    public TextView getItemDetail() {
         return mDetailTextView;
     }
 
-    public LinearLayout getTitleContainer(){
+    public LinearLayout getTitleContainer() {
         return mTitleContainer;
     }
 

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.app.base.common.view.combination.CommonItem
-        android:layout_width="match_parent"
-        android:layout_height="60dp" />
-
     <com.app.base.common.view.combination.AutoRollBanner
         android:id="@+id/autoRollBanner"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="200dp"
+        app:marginBetweenDots="6dp"
+        app:normalDotSrc="@drawable/dot_gray"
+        app:selectDotSrc="@drawable/dot_red" />
 
 </LinearLayout>

@@ -65,14 +65,14 @@ public class GuideActivity extends BaseActivity {
                 FrameLayout last = new FrameLayout(GuideActivity.this);
 
                 TextView access = new TextView(GuideActivity.this);
-                FrameLayout.LayoutParams tvlp = new FrameLayout.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT, Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
-                tvlp.bottomMargin = DisplayUtil.dp2px(30);
-                access.setLayoutParams(tvlp);
+                FrameLayout.LayoutParams p = new FrameLayout.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT, Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
+                p.bottomMargin = DisplayUtil.dp2px(ctx, 60);
+                access.setLayoutParams(p);
                 access.setText("立即体验");
                 access.setBackgroundResource(R.drawable.shape_corner_10dp_pink);
                 access.setTextColor(Color.WHITE);
                 access.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
-                access.setPadding(DisplayUtil.dp2px(20), DisplayUtil.dp2px(10), DisplayUtil.dp2px(20), DisplayUtil.dp2px(10));
+                access.setPadding(DisplayUtil.dp2px(ctx, 20), DisplayUtil.dp2px(ctx, 10), DisplayUtil.dp2px(ctx, 20), DisplayUtil.dp2px(ctx, 10));
                 access.setOnClickListener((v) -> {
                     Intent intent = new Intent();
                     intent.setClass(GuideActivity.this, HomeActivity.class);

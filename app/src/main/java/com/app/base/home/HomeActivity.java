@@ -157,7 +157,7 @@ public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
                     @Override
                     public void onFinish() {
-                        Log.i("dhj", "onFinish = " + DisplayUtil.getScreenWidth());
+                        Log.i("dhj", "onFinish = " + DisplayUtil.getScreenWidth(ctx));
                     }
 
                     @Override

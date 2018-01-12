@@ -78,11 +78,11 @@ public class TipPopup extends PopupWindow implements BaseConstant {
 
         mTipIcon = new ImageView(mCtx);
         mTipIcon.setLayoutParams(new LinearLayout.LayoutParams(
-                DisplayUtil.dp2px(TIP_ICON_SIZE), DisplayUtil.dp2px(TIP_ICON_SIZE)));
+                DisplayUtil.dp2px(mCtx, TIP_ICON_SIZE), DisplayUtil.dp2px(mCtx, TIP_ICON_SIZE)));
         mTipText = new TextView(mCtx);
         LinearLayout.LayoutParams tvp = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        tvp.topMargin = DisplayUtil.dp2px(DIS_ICON_TO_TEXT);
+        tvp.topMargin = DisplayUtil.dp2px(mCtx, DIS_ICON_TO_TEXT);
         mTipText.setLayoutParams(tvp);
         mTipText.setGravity(Gravity.CENTER);
         mTipText.setMaxLines(ONE);

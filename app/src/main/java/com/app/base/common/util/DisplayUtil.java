@@ -17,54 +17,59 @@ public class DisplayUtil {
     /**
      * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
      *
+     * @param ctx
      * @param pxValue
      * @return
      */
-    public static int px2dp(float pxValue) {
-        float scale = Mine.getApplication().getResources().getDisplayMetrics().density;
+    public static int px2dp(Context ctx, float pxValue) {
+        float scale = ctx.getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
     }
 
     /**
      * 将dp转换成px
      *
+     * @param ctx
      * @param dpValue
      * @return
      */
-    public static int dp2px(float dpValue) {
-        float scale = Mine.getApplication().getResources().getDisplayMetrics().density;
+    public static int dp2px(Context ctx, float dpValue) {
+        float scale = ctx.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
 
     /**
      * 将px值转换为sp值，保证文字大小不变
      *
+     * @param ctx
      * @param pxValue
      * @return
      */
-    public static int px2sp(float pxValue) {
-        float scale = Mine.getApplication().getResources().getDisplayMetrics().scaledDensity;
+    public static int px2sp(Context ctx, float pxValue) {
+        float scale = ctx.getResources().getDisplayMetrics().scaledDensity;
         return (int) (pxValue / scale + 0.5f);
     }
 
     /**
      * 将sp值转换为px值，保证文字大小不变
      *
+     * @param ctx
      * @param spValue
      * @return
      */
-    public static int sp2px(float spValue) {
-        float scale = Mine.getApplication().getResources().getDisplayMetrics().scaledDensity;
+    public static int sp2px(Context ctx, float spValue) {
+        float scale = ctx.getResources().getDisplayMetrics().scaledDensity;
         return (int) (spValue * scale + 0.5f);
     }
 
     /**
      * 获取屏幕高度
      *
+     * @param ctx
      * @return
      */
-    public static int getScreenHeight() {
-        WindowManager localWindowManager = (WindowManager) Mine.getApplication().getSystemService(Context.WINDOW_SERVICE);
+    public static int getScreenHeight(Context ctx) {
+        WindowManager localWindowManager = (WindowManager) ctx.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics localDisplayMetrics = new DisplayMetrics();
         localWindowManager.getDefaultDisplay().getMetrics(localDisplayMetrics);
         return localDisplayMetrics.heightPixels;
@@ -73,10 +78,11 @@ public class DisplayUtil {
     /**
      * 获取屏幕宽度
      *
+     * @param ctx
      * @return
      */
-    public static int getScreenWidth() {
-        WindowManager localWindowManager = (WindowManager) Mine.getApplication().getSystemService(Context.WINDOW_SERVICE);
+    public static int getScreenWidth(Context ctx) {
+        WindowManager localWindowManager = (WindowManager) ctx.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics localDisplayMetrics = new DisplayMetrics();
         localWindowManager.getDefaultDisplay().getMetrics(localDisplayMetrics);
         return localDisplayMetrics.widthPixels;
