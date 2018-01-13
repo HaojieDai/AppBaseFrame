@@ -1,5 +1,7 @@
 package com.app.base.common;
 
+import android.webkit.JavascriptInterface;
+
 /**
  * js交互
  *
@@ -8,6 +10,11 @@ package com.app.base.common;
 public class JsAndroid {
 
     public static final String NAME = "JsAndroid";
+
+    @JavascriptInterface
+    public void getPageUrl(){
+        
+    }
 
 
 }
