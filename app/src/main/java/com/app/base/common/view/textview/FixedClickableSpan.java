@@ -12,7 +12,7 @@ import android.view.View;
  * 提供设置 span 的文字颜色和背景颜色的功能, 在构造时传入
  * </p>
  */
-public abstract class TouchableSpan extends ClickableSpan implements ITouchableSpan {
+public abstract class FixedClickableSpan extends ClickableSpan implements ITouchableSpan {
     private boolean mIsPressed;
     @ColorInt
     private int mNormalBackgroundColor;
@@ -34,11 +34,10 @@ public abstract class TouchableSpan extends ClickableSpan implements ITouchableS
         }
     }
 
-
-    public TouchableSpan(@ColorInt int normalTextColor,
-                         @ColorInt int pressedTextColor,
-                         @ColorInt int normalBackgroundColor,
-                         @ColorInt int pressedBackgroundColor) {
+    public FixedClickableSpan(@ColorInt int normalTextColor,
+                              @ColorInt int pressedTextColor,
+                              @ColorInt int normalBackgroundColor,
+                              @ColorInt int pressedBackgroundColor) {
         mNormalTextColor = normalTextColor;
         mPressedTextColor = pressedTextColor;
         mNormalBackgroundColor = normalBackgroundColor;

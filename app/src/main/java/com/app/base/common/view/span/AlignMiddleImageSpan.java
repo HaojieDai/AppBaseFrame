@@ -24,9 +24,10 @@ public class AlignMiddleImageSpan extends ImageSpan {
     /**
      * 是否避免父类修改FontMetrics，如果为 false 则会走父类的逻辑, 会导致FontMetrics被更改
      */
-    private boolean mAvoidSuperChangeFontMetrics = false;
+    private boolean mAvoidSuperChangeFontMetrics = true;
 
-    @SuppressWarnings("FieldCanBeLocal") private int mWidth;
+    @SuppressWarnings("FieldCanBeLocal")
+    private int mWidth;
 
     /**
      * @param d                 作为 span 的 Drawable
@@ -58,7 +59,7 @@ public class AlignMiddleImageSpan extends ImageSpan {
             mWidth = super.getSize(paint, text, start, end, fm);
         }
         if (mFontWidthMultiple > 0) {
-            mWidth = (int) (paint.measureText("子") * mFontWidthMultiple);
+            mWidth = (int) (paint.measureText("华") * mFontWidthMultiple);
         }
         return mWidth;
     }
@@ -69,14 +70,6 @@ public class AlignMiddleImageSpan extends ImageSpan {
         if (mVerticalAlignment == ALIGN_MIDDLE) {
             Drawable d = getDrawable();
             canvas.save();
-
-//            // 注意如果这样实现会有问题：TextView 有 lineSpacing 时，这里 bottom 偏大，导致偏下
-//            int transY = bottom - d.getBounds().bottom; // 底对齐
-//            transY -= (paint.getFontMetricsInt().bottom - paint.getFontMetricsInt().top) / 2 - d.getBounds().bottom / 2; // 居中对齐
-//            canvas.translate(x, transY);
-//            d.draw(canvas);
-//            canvas.restore();
-
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
             int fontTop = y + fontMetricsInt.top;
             int fontMetricsHeight = fontMetricsInt.bottom - fontMetricsInt.top;

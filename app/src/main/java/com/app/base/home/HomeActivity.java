@@ -10,9 +10,9 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.app.base.R;
 import com.app.base.common.BaseActivity;
 import com.app.base.common.BaseFragment;
-import com.app.base.R;
 import com.app.base.common.util.DisplayUtil;
 import com.app.base.common.util.SelectorFactory;
 

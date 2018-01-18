@@ -2,6 +2,7 @@ package com.app.base.common.view;
 
 import android.content.Context;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageView;
@@ -17,6 +18,8 @@ import com.app.base.R;
  */
 public class AnimLoadingView extends AppCompatImageView {
 
+    final int MESSAGE = 0;
+    final int DELAYED = 300;
     private int[] drawables;
     private int index;
 
@@ -47,21 +50,21 @@ public class AnimLoadingView extends AppCompatImageView {
 
     private void start() {
         setImageResource(drawables[index]);
-        mHandler.sendEmptyMessageDelayed(0, 300);
+        mHandler.sendEmptyMessageDelayed(MESSAGE, DELAYED);
     }
 
     private void stop() {
         index = 0;
-        mHandler.removeMessages(0);
+        mHandler.removeMessages(MESSAGE);
     }
 
-    private Handler mHandler = new Handler() {
+    private Handler mHandler = new Handler(Looper.getMainLooper()) {
 
         @Override
         public void handleMessage(Message msg) {
             index++;
             setImageResource(drawables[index % drawables.length]);
-            mHandler.sendEmptyMessageDelayed(0, 300);
+            mHandler.sendEmptyMessageDelayed(MESSAGE, DELAYED);
         }
     };
 

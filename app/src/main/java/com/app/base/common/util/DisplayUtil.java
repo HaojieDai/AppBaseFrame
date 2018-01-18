@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
-import com.app.base.Mine;
+import com.app.base.BaseApplication;
 
 /**
  * 关于显示的工具
@@ -98,7 +98,7 @@ public class DisplayUtil {
             Class<?> clazz = Class.forName("com.android.internal.R$dimen");
             Object localObject = clazz.newInstance();
             int i = Integer.parseInt(clazz.getField("status_bar_height").get(localObject).toString());
-            int j = Mine.getApplication().getResources().getDimensionPixelSize(i);
+            int j = BaseApplication.getApplication().getResources().getDimensionPixelSize(i);
             return j;
         } catch (Exception localException) {
             localException.printStackTrace();

@@ -18,21 +18,21 @@ import android.widget.TextView;
  * 修复了 {@link TextView} 默认情况下如果添加了 {@link android.text.style.ClickableSpan} 之后就无法把点击事件传递给 {@link TextView} 的 Parent 的问题。
  * </p>
  * <p>
- * 注意: 使用该 {@link TextView} 时, 用 {@link TouchableSpan} 代替 {@link android.text.style.ClickableSpan},
- * 且同时可以使用 {@link TouchableSpan} 达到修改 span 的文字颜色和背景色的目的。
+ * 注意: 使用该 {@link TextView} 时, 用 {@link FixedClickableSpan} 代替 {@link android.text.style.ClickableSpan},
+ * 且同时可以使用 {@link FixedClickableSpan} 达到修改 span 的文字颜色和背景色的目的。
  * </p>
  * <p>
- * 注意: 使用该 {@link TextView} 时, 需调用 {@link #setDefaultMovementMethod()} 方法设置默认的 {@link LinkTouchMovementMethod},
- * TextView 会在 {@link #onTouchEvent(MotionEvent)} 时将事件传递给 {@link LinkTouchMovementMethod},
- * 然后传递给 {@link TouchableSpan}, 实现点击态的变化和点击事件的响应。
+ * 注意: 使用该 {@link TextView} 时, 需调用 {@link #setDefaultMovementMethod()} 方法设置默认的 {@link FixedLinkMovementMethod},
+ * TextView 会在 {@link #onTouchEvent(MotionEvent)} 时将事件传递给 {@link FixedLinkMovementMethod},
+ * 然后传递给 {@link FixedClickableSpan}, 实现点击态的变化和点击事件的响应。
  * </p>
  *
  * @author cginechen
  * @date 2017-03-20
- * @see TouchableSpan
- * @see LinkTouchMovementMethod
+ * @see FixedClickableSpan
+ * @see FixedLinkMovementMethod
  */
-public class TouchSpanFixedTextView extends TextView implements ISpanTouchFix {
+public class FixedTextView extends TextView implements ISpanTouchFix {
     /**
      * 记录当前 Touch 事件对应的点是不是点在了 span 上面
      */
@@ -47,15 +47,15 @@ public class TouchSpanFixedTextView extends TextView implements ISpanTouchFix {
      */
     private boolean mNeedForceEventToParent = false;
 
-    public TouchSpanFixedTextView(Context context) {
+    public FixedTextView(Context context) {
         this(context, null);
     }
 
-    public TouchSpanFixedTextView(Context context, AttributeSet attrs) {
+    public FixedTextView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public TouchSpanFixedTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public FixedTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         setHighlightColor(Color.TRANSPARENT);
     }
@@ -76,7 +76,7 @@ public class TouchSpanFixedTextView extends TextView implements ISpanTouchFix {
      * 使用者主动调用
      */
     public void setDefaultMovementMethod() {
-        setMovementMethodCompat(LinkTouchMovementMethod.getInstance());
+        setMovementMethodCompat(FixedLinkMovementMethod.getInstance());
     }
 
     public void setMovementMethodCompat(MovementMethod movement) {

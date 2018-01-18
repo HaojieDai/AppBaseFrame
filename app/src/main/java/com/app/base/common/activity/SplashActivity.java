@@ -1,21 +1,17 @@
 package com.app.base.common.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
-import android.webkit.WebChromeClient;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
+import com.app.base.KeyboardActivity;
+import com.app.base.KeyboardFullActivity;
 import com.app.base.R;
 import com.app.base.common.BaseActivity;
-import com.app.base.common.JsAndroid;
 import com.app.base.common.util.FullScreenUtil;
-import com.app.base.common.view.MineWebView;
 import com.app.base.common.view.combination.AutoRollBanner;
+import com.app.base.home.HomeActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +24,6 @@ import java.util.List;
 public class SplashActivity extends BaseActivity {
 
     AutoRollBanner mAutoRollBanner;
-    MineWebView mWebView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,27 +50,28 @@ public class SplashActivity extends BaseActivity {
             }
         }
         mAutoRollBanner.setBanners(banners);
-
-        mWebView = (MineWebView) findViewById(R.id.webView);
-        mWebView.loadUrl("https://www.jianshu.com/p/3c94ae673e2a");
-        mWebView.setWebViewClient(new WebViewClient() {
-
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
-            }
-
-            @Override
-            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                view.loadUrl("");
-            }
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-
-            }
-        });
-
     }
+
+    Intent intent = new Intent();
+
+    public void guide(View v) {
+        intent.setClass(this, GuideActivity.class);
+        startActivity(intent);
+    }
+
+    public void home(View v) {
+        intent.setClass(this, HomeActivity.class);
+        startActivity(intent);
+    }
+
+    public void keyboardFull(View v) {
+        intent.setClass(this, KeyboardFullActivity.class);
+        startActivity(intent);
+    }
+
+    public void keyboard(View v) {
+        intent.setClass(this, KeyboardActivity.class);
+        startActivity(intent);
+    }
+
 }

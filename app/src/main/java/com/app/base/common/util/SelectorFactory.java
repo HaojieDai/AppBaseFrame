@@ -4,7 +4,7 @@ import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 
-import com.app.base.Mine;
+import com.app.base.BaseApplication;
 
 /**
  * 制造Selector的工厂
@@ -15,8 +15,8 @@ public class SelectorFactory {
 
     public static StateListDrawable mkPressedSelector(int pressedResId, int unPressedResId) {
         StateListDrawable drawable = new StateListDrawable();
-        Drawable pressed = Mine.getApplication().getResources().getDrawable(pressedResId);
-        Drawable unPressed = Mine.getApplication().getResources().getDrawable(unPressedResId);
+        Drawable pressed = BaseApplication.getApplication().getResources().getDrawable(pressedResId);
+        Drawable unPressed = BaseApplication.getApplication().getResources().getDrawable(unPressedResId);
         drawable.addState(new int[]{android.R.attr.state_pressed}, pressed);
         drawable.addState(new int[]{-android.R.attr.state_pressed}, unPressed);
         return drawable;
@@ -24,8 +24,8 @@ public class SelectorFactory {
 
     public static StateListDrawable mkCheckedSelector(int checkedResId, int unCheckedResId) {
         StateListDrawable drawable = new StateListDrawable();
-        Drawable checked = Mine.getApplication().getResources().getDrawable(checkedResId);
-        Drawable unChecked = Mine.getApplication().getResources().getDrawable(unCheckedResId);
+        Drawable checked = BaseApplication.getApplication().getResources().getDrawable(checkedResId);
+        Drawable unChecked = BaseApplication.getApplication().getResources().getDrawable(unCheckedResId);
         drawable.addState(new int[]{android.R.attr.state_checked}, checked);
         drawable.addState(new int[]{-android.R.attr.state_checked}, unChecked);
         return drawable;
@@ -33,8 +33,8 @@ public class SelectorFactory {
 
     public static StateListDrawable mkSelectedSelector(int selectedResId, int unSelectedResId) {
         StateListDrawable drawable = new StateListDrawable();
-        Drawable selected = Mine.getApplication().getResources().getDrawable(selectedResId);
-        Drawable unSelected = Mine.getApplication().getResources().getDrawable(unSelectedResId);
+        Drawable selected = BaseApplication.getApplication().getResources().getDrawable(selectedResId);
+        Drawable unSelected = BaseApplication.getApplication().getResources().getDrawable(unSelectedResId);
         drawable.addState(new int[]{android.R.attr.state_selected}, selected);
         drawable.addState(new int[]{-android.R.attr.state_selected}, unSelected);
         return drawable;
@@ -42,8 +42,8 @@ public class SelectorFactory {
 
     public static StateListDrawable mkEnablededSelector(int enabledResId, int unEnabledResId) {
         StateListDrawable drawable = new StateListDrawable();
-        Drawable selected = Mine.getApplication().getResources().getDrawable(enabledResId);
-        Drawable unSelected = Mine.getApplication().getResources().getDrawable(unEnabledResId);
+        Drawable selected = BaseApplication.getApplication().getResources().getDrawable(enabledResId);
+        Drawable unSelected = BaseApplication.getApplication().getResources().getDrawable(unEnabledResId);
         drawable.addState(new int[]{android.R.attr.state_enabled}, selected);
         drawable.addState(new int[]{-android.R.attr.state_enabled}, unSelected);
         return drawable;

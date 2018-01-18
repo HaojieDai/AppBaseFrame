@@ -13,7 +13,7 @@ import android.widget.TextView;
  * @author cginechen
  * @date 2017-03-20
  */
-public class LinkTouchMovementMethod extends LinkMovementMethod {
+public class FixedLinkMovementMethod extends LinkMovementMethod {
 
     @Override
     public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
@@ -23,12 +23,12 @@ public class LinkTouchMovementMethod extends LinkMovementMethod {
 
     public static MovementMethod getInstance() {
         if (sInstance == null)
-            sInstance = new LinkTouchMovementMethod();
+            sInstance = new FixedLinkMovementMethod();
 
         return sInstance;
     }
 
-    private static LinkTouchMovementMethod sInstance;
+    private static FixedLinkMovementMethod sInstance;
     private static LinkTouchDecorHelper sHelper = new LinkTouchDecorHelper();
 
 }

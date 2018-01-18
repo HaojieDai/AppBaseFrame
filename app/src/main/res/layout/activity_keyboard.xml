@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.dreamtobe.kpswitch.widget.KPSwitchRootLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ff0000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#f6f6f6"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <ImageView
+            android:id="@+id/panel_switch"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:adjustViewBounds="true"
+            android:clickable="true"
+            android:src="@drawable/permission_ic_contacts" />
+
+        <com.app.base.common.view.textview.ListenInputEditText
+            android:id="@+id/editText"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_corner_5dp_white_with_gray_border"
+            tools:ignore="TextFields" />
+
+    </LinearLayout>
+
+    <cn.dreamtobe.kpswitch.widget.KPSwitchPanelFrameLayout
+        android:id="@+id/panel_root"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/custom_keyboard_min_height"
+        android:visibility="gone">
+
+        <com.app.base.common.view.keyboard.EmojiPanel
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </cn.dreamtobe.kpswitch.widget.KPSwitchPanelFrameLayout>
+
+</cn.dreamtobe.kpswitch.widget.KPSwitchRootLinearLayout>

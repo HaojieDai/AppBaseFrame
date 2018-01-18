@@ -1,8 +1,9 @@
-package com.app.base.common.view;
+package com.app.base.common.view.webview;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
@@ -11,27 +12,24 @@ import android.webkit.WebView;
  *
  * @author Haojie.Dai
  */
-public class MineWebView extends WebView {
+public class X5WebView extends WebView {
 
-    public MineWebView(Context context) {
+    private JsAndroid jsAndroid;
+
+    public X5WebView(Context context) {
         this(context, null);
     }
 
-    public MineWebView(Context context, AttributeSet attrs) {
+    public X5WebView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
         // 禁止长按复制功能
         setOnLongClickListener((View v) -> true);
-        // 清除网页访问留下的缓存
-        clearCache(true);
-        // 清除当前WebView访问的历史记录
-        clearHistory();
-        // 清除自动完成填充的表单数据
-        clearFormData();
-
         WebSettings webSettings = getSettings();
-
         // 如果访问的页面中要与Javascript交互，则WebView必须设置支持Javascript
         webSettings.setJavaScriptEnabled(true);
+        jsAndroid = new JsAndroid(this);
+        addJavascriptInterface(jsAndroid, JsAndroid.NAME);
         // 设置自适应屏幕，两者合用
         webSettings.setUseWideViewPort(true); //将图片调整到适合WebView的大小
         webSettings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
@@ -56,6 +54,30 @@ public class MineWebView extends WebView {
         webSettings.setDatabaseEnabled(true);  // 开启 database storage API 功能
         webSettings.setAppCacheEnabled(true); // 开启 Application Caches 功能
         // webSettings.setAppCachePath(""); // 设置 Application Caches 缓存目录
-
     }
+
+    /**
+     * 销毁WebView
+     */
+    public void recycle() {
+        loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
+        // 清除网页访问留下的缓存
+        clearCache(true);
+        // 清除当前WebView访问的历史记录
+        clearHistory();
+        // 清除自动完成填充的表单数据
+        clearFormData();
+        ((ViewGroup) getParent()).removeView(this);
+        destroy();
+    }
+
+    /**
+     * 获取js对象
+     *
+     * @return
+     */
+    public JsAndroid getJsAndroid() {
+        return jsAndroid;
+    }
+
 }

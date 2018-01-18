@@ -3,7 +3,7 @@ package com.app.base.common.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.app.base.Mine;
+import com.app.base.BaseApplication;
 
 import java.util.Map;
 
@@ -21,7 +21,7 @@ public class SharedPreferencesUtil {
      * @return
      */
     public static SharedPreferences getSharedPreferences(String name) {
-        return Mine.getApplication().getSharedPreferences(name, Context.MODE_PRIVATE);
+        return BaseApplication.getApplication().getSharedPreferences(name, Context.MODE_PRIVATE);
     }
 
     /**

@@ -15,8 +15,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.app.base.common.BaseActivity;
 import com.app.base.R;
+import com.app.base.common.BaseActivity;
 import com.app.base.common.ZoomOutPageTransformer;
 import com.app.base.common.util.DisplayUtil;
 import com.app.base.common.util.FullScreenUtil;
@@ -29,12 +29,12 @@ import com.app.base.home.HomeActivity;
  */
 public class GuideActivity extends BaseActivity {
 
-    final int[] resIds = {R.drawable.guide1, R.drawable.guide2, R.drawable.guide3, R.drawable.guide1, R.drawable.guide2, R.drawable.guide3};
+    final int[] resIds = {R.drawable.guide1, R.drawable.guide2, R.drawable.guide3};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FullScreenUtil.fullScreen(this);
+        FullScreenUtil.fullBaseOnAndroid_K(this);
         mTitleBar.setVisibility(View.GONE);
         mLoadingLayout.setVisibility(View.GONE);
         mContentLayout.setVisibility(View.VISIBLE);

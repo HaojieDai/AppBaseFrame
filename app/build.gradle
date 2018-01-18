@@ -38,4 +38,6 @@ dependencies {
     compile 'jp.wasabeef:glide-transformations:2.0.2'
     implementation 'com.squareup.okhttp3:okhttp:3.9.1'
     compile 'org.greenrobot:eventbus:3.0.0'
+
+    compile 'cn.dreamtobe.kpswitch:library:1.6.0'
 }

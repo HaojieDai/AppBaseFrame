@@ -13,9 +13,42 @@
         app:normalDotSrc="@drawable/dot_gray"
         app:selectDotSrc="@drawable/dot_red" />
 
-    <com.app.base.common.view.MineWebView
-        android:id="@+id/webView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="guide"
+                android:text="GUIDE" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="home"
+                android:text="HOME" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="keyboardFull"
+                android:text="KEYBOARD WITH FULLSCREEN" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="keyboard"
+                android:text="KEYBOARD" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
+

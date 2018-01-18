@@ -1,21 +1,19 @@
 package com.app.base;
 
 import android.app.Application;
-import android.content.SharedPreferences;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.app.base.common.util.BaseConstant;
-import com.app.base.common.util.SharedPreferencesUtil;
 
 /**
  * 自定义Application类
  *
  * @author Haojie.Dai
  */
-public class Mine extends Application implements BaseConstant {
+public class BaseApplication extends Application implements BaseConstant {
 
-    private static Mine instance;
+    private static BaseApplication instance;
     private static RequestQueue requestQueue;
 
     @Override
@@ -26,7 +24,7 @@ public class Mine extends Application implements BaseConstant {
 
     }
 
-    public static Mine getApplication() {
+    public static BaseApplication getApplication() {
         return instance;
     }
 

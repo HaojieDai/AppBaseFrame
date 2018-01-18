@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.app.base.R;
 import com.app.base.common.util.DisplayUtil;
@@ -45,6 +46,9 @@ public class AutoRollBanner extends FrameLayout {
         public String image;
     }
 
+    final int MESSAGE = 0;
+    final int DELAYED = 3000;
+
     LinearLayoutManager mLinearLayoutManager;
     RecyclerView mRecyclerView;
     LinearLayout mDots;
@@ -57,7 +61,6 @@ public class AutoRollBanner extends FrameLayout {
     int marginBetweenDots;
     int dotsBottomMargin;
     int dotSize;
-
     int DP10;
 
     public AutoRollBanner(@NonNull Context context) {
@@ -88,7 +91,7 @@ public class AutoRollBanner extends FrameLayout {
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 switch (newState) {
                     case RecyclerView.SCROLL_STATE_IDLE:
-                        mHandler.removeCallbacksAndMessages(null);
+                        mHandler.removeMessages(MESSAGE);
                         current = mLinearLayoutManager.findFirstVisibleItemPosition();
 
                         for (int i = 0; i < mDots.getChildCount(); i++) {
@@ -100,10 +103,10 @@ public class AutoRollBanner extends FrameLayout {
                             }
                         }
 
-                        mHandler.sendEmptyMessageDelayed(MESSAGE, 3000);
+                        mHandler.sendEmptyMessageDelayed(MESSAGE, DELAYED);
                         break;
                     case RecyclerView.SCROLL_STATE_DRAGGING:
-                        mHandler.removeCallbacksAndMessages(null);
+                        mHandler.removeMessages(MESSAGE);
                         break;
                 }
             }
@@ -120,7 +123,6 @@ public class AutoRollBanner extends FrameLayout {
         mDots.setLayoutParams(lp);
     }
 
-    final int MESSAGE = 0;
     Handler mHandler = new Handler(Looper.getMainLooper()) {
 
         @Override
@@ -128,7 +130,7 @@ public class AutoRollBanner extends FrameLayout {
             if (banners.size() == 0) return;
             current++;
             mRecyclerView.smoothScrollToPosition(current);
-            mHandler.sendEmptyMessageDelayed(MESSAGE, 3000);
+            mHandler.sendEmptyMessageDelayed(MESSAGE, DELAYED);
         }
     };
 
@@ -136,14 +138,25 @@ public class AutoRollBanner extends FrameLayout {
         if (banners == null || banners.isEmpty()) {
             return;
         }
-        mHandler.removeCallbacksAndMessages(null);
+        mHandler.removeMessages(MESSAGE);
         this.banners = banners;
         mBannerAdapter = new BannerAdapter();
         mRecyclerView.setAdapter(mBannerAdapter);
         initDots();
         current = Integer.MAX_VALUE / 2 - Integer.MAX_VALUE / 2 % banners.size();
         mRecyclerView.scrollToPosition(current);
-        mHandler.sendEmptyMessageDelayed(MESSAGE, 3000);
+        mHandler.sendEmptyMessageDelayed(MESSAGE, DELAYED);
+    }
+
+    public void notifyDataSetChanged() {
+        if (mBannerAdapter != null) {
+            mHandler.removeMessages(MESSAGE);
+            mBannerAdapter.notifyDataSetChanged();
+            initDots();
+            current = Integer.MAX_VALUE / 2 - Integer.MAX_VALUE / 2 % banners.size();
+            mRecyclerView.scrollToPosition(current);
+            mHandler.sendEmptyMessageDelayed(MESSAGE, DELAYED);
+        }
     }
 
     private void initDots() {
@@ -163,17 +176,6 @@ public class AutoRollBanner extends FrameLayout {
         }
     }
 
-    public void notifyDataSetChanged() {
-        if (mBannerAdapter != null) {
-            mHandler.removeCallbacksAndMessages(null);
-            mBannerAdapter.notifyDataSetChanged();
-            initDots();
-            current = Integer.MAX_VALUE / 2 - Integer.MAX_VALUE / 2 % banners.size();
-            mRecyclerView.scrollToPosition(current);
-            mHandler.sendEmptyMessageDelayed(MESSAGE, 3000);
-        }
-    }
-
     class BannerAdapter extends RecyclerView.Adapter<BannerViewHolder> {
 
         @Override
@@ -185,9 +187,13 @@ public class AutoRollBanner extends FrameLayout {
 
         @Override
         public void onBindViewHolder(BannerViewHolder holder, int position) {
-            position = position % banners.size();
+            final int p = position % banners.size();
+            Banner banner = banners.get(p);
             ImageView itemView = (ImageView) holder.itemView;
-            Glide.with(getContext()).load(banners.get(position).image).into(itemView);
+            Glide.with(getContext()).load(banner.image).into(itemView);
+            itemView.setOnClickListener((v) -> {
+                Toast.makeText(getContext(), "position = " + p, Toast.LENGTH_SHORT).show();
+            });
         }
 
         @Override
@@ -203,4 +209,9 @@ public class AutoRollBanner extends FrameLayout {
         }
     }
 
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        mHandler.removeMessages(MESSAGE);
+    }
 }

@@ -73,11 +73,13 @@ public class BaseActivity extends AppCompatActivity implements BaseConstant {
 
     @Override
     public void setContentView(int layoutResID) {
+        mContentLayout.removeAllViews();
         LayoutInflater.from(getBaseContext()).inflate(layoutResID, mContentLayout, true);
     }
 
     @Override
     public void setContentView(View view) {
+        mContentLayout.removeAllViews();
         mContentLayout.addView(view);
     }
 }
